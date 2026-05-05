@@ -39,11 +39,9 @@ app.use("/api/upload", uploadRouter);
 app.use(notFound);
 app.use(errorHandler);
 
-// For local development
-if (process.env.NODE_ENV !== "production") {
-  app.listen(PORT, () => {
-    console.log(`Server is running at PORT ${PORT}`);
-  });
-}
+// Listen on the port provided by the environment (needed for Render)
+app.listen(PORT, () => {
+  console.log(`Server is running at PORT ${PORT}`);
+});
 
 module.exports = app;
